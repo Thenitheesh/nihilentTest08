@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-<style>
-    body{
+    <style>
+      body {
         margin: 0;
-        
-    }
-section{
+        min-height: 100vh;
+        background-color: whitesmoke;
+        font-family: sans-serif;
+      }
+      /* section{
     display: flex;
     flex-direction: column;
-}
-.bookcontainer{
-height: 20rem;
-width: 10rem;
-
-margin: 1rem;
-}
-img{
-    
-
-    height: 15rem;
-    width: 10rem;
-
-}
-    .booksContainer{
+    flex-wrap: wrap;
+} */
+      .bookcontainer {
+        margin: 1rem;
+      }
+      img {
+        height: 16rem;
+        width: 100%;
+      }
+      .booksContainer {
         display: flex;
-    }
-    .addbook {
+      }
+      .addbook {
         height: 15rem;
         display: flex;
         flex-direction: column;
@@ -39,7 +36,7 @@ img{
         padding: 2rem;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       }
-      .addbook button,
+      /* .addbook button,
       input {
         background-color: #f8f4ff;
         height: 37px;
@@ -49,12 +46,48 @@ img{
         font-size: 14px;
         border: 1px solid #cccccc;
         transition: border-color 0.3s ease;
+      } */
+      /*  */
+      .books-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
       }
-</style>
-</head>
-<body>
+      .bookcontainer {
+        width: 11rem;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+      }
 
-    <section>
+      header {
+        background-color: #5f5378;
+        height: 4rem;
+      }
+      .searchContainer {
+        margin-top: 2rem;
+        background-color: white;
+        height: 4rem;
+        display: flex;
+        padding: 0 2rem;
+        justify-content: space-between;
+        align-items: center;
+      }
+      input {
+        background-color: #fcfbfd;
+        height: 1.5rem;
+        border-radius: 5px;
+        color: rgb(19, 19, 19);
+        
+        font-size: 14px;
+        border: 2px solid #dbd9d9;
+        transition: border-color 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <section>
        <div >
         <input type="text" class="searchText" placeholder="searchText" id="">
         <button class="Search-btn" onclick="searchBookByName()">🔍</button>
@@ -69,7 +102,36 @@ img{
             <button onclick="createbook()"> submit</button>
         </div>
       <div class="booksContainer"></div>
+    </section> -->
+    <section>
+      <header>
+        <div class="link">
+          <a href="" class="nav-links">About</a
+          ><a href="" class="nav-links">Services</a
+          ><a href="" class="nav-links">Projects</a>
+          <button class="nav-btn">Contact</button>
+        </div>
+      </header>
+    </section>
+    <section>
+      <div class="searchContainer">
+        <div class="searchbox">
+          <input type="text" placeholder="search.."/>
+          <button>search</button>
+          <select width="300" style="width: 350px">
+            <option value="" selected>Select a option</option>
+            <option value="title">title</option>
+            <option value="author">author</option>
+            <option value="publishedYear">publishedYear</option>
+            <option value="genre">genre</option>
+          </select>
+        </div>
+        <div class="createbook">
+          <button class="createbook">New</button>
+        </div>
+      </div>
+      <div class="books-container"></div>
     </section>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>

@@ -1,10 +1,8 @@
 
 
-
-// books.forEach(({ title, author, publishedYear, id }) => {
     function createbookStructure({title,author,publishedYear,id,coverImageUrl}){
         
-  document.querySelector(".booksContainer").innerHTML += `  <div class="bookcontainer">
+  document.querySelector(".books-container").innerHTML += `  <div class="bookcontainer">
     <img src="${coverImageUrl}" alt="">
     <div>
         <h3>${title}</h3>
@@ -89,12 +87,12 @@ let searchBook = async() => {
 let searchBookByName=async()=>{
     let res= await searchBook()
    
-    document.querySelector(".booksContainer").innerHTML =""
+    document.querySelector(".books-container").innerHTML =""
     res.forEach((e)=>createbookStructure(e))
 }
 let createbookUi=async()=>{
     let books=await getbooks();
-    document.querySelector(".booksContainer").innerHTML =""
+    document.querySelector(".books-container").innerHTML =""
     books.forEach(element => {
         createbookStructure(element)
     });
