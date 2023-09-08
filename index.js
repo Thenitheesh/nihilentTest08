@@ -3,6 +3,7 @@
 
 // books.forEach(({ title, author, publishedYear, id }) => {
     function createbookStructure({title,author,publishedYear,id,coverImageUrl}){
+        
   document.querySelector(".booksContainer").innerHTML += `  <div class="bookcontainer">
     <img src="${coverImageUrl}" alt="">
     <div>
@@ -75,15 +76,21 @@ let createbook = () => {
 
 };
 let searchBook = async() => {
-    let searchText = document.querySelector(".Search-value").value;
+    let searchText = document.querySelector(".searchText").value;
     let res=await fetch(
-      `https://64f6f4189d7754084952d867.mockapi.io/users?name=${searchText}`,
+      `https://64f6f4189d7754084952d867.mockapi.io/users?title=${searchText}`,
       {
         method: "get",
       }
     )
     let response=res.json()
-    return searchBook;
+    return response;
+}
+let searchBookByName=async()=>{
+    let res= await searchBook()
+   
+    document.querySelector(".booksContainer").innerHTML =""
+    res.forEach((e)=>createbookStructure(e))
 }
 let createbookUi=async()=>{
     let books=await getbooks();
