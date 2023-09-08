@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        margin: 0;
+        
+    }
+section{
+    display: flex;
+}
+.bookcontainer{
+height: 20rem;
+width: 10rem;
+display: flex;
+flex-direction: column;
+margin: 1rem;
+}
+    .booksContainer{
+        display: flex;
+    }
+    .addbook {
+        height: 15rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border-radius: 10px;
+        background-color: white;
+        padding: 2rem;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+      .addbook button,
+      input {
+        background-color: #f8f4ff;
+        height: 37px;
+        border-radius: 10px;
+        color: #5f5378;
+        font-weight: bold;
+        font-size: 14px;
+        border: 1px solid #cccccc;
+        transition: border-color 0.3s ease;
+      }
+</style>
+</head>
+<body>
+
+    <section>
+       
+        <div class="addbook">
+            <input type="text" class="title" placeholder="title" name="" id="">
+            <input type="text" class="coverImageUrl" placeholder="coverImageUrl" name="" id="">
+             <input type="text" class="description" placeholder="description" name="" id="">
+            <input type="text" class="author"  placeholder="author"name="" id="">
+            <input type="text" class="gener" placeholder="gener" name="" id="">
+            <input type="text" class="publishedYear" placeholder="publishedYear"name="" id="">
+            <button onclick="createbook()"> submit</button>
+        </div>
+      <div class="booksContainer"></div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
