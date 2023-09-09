@@ -8,7 +8,7 @@
         <h3>${title}</h3>
         <p>${author}</p>
         <p>${publishedYear}</p>
-        <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash deleteIcon" style="color: #f41010;"></i></button>
+        <button class="delete" onclick="deletebook(${id})"><i class="fa-solid fa-trash deleteIcon" style="color: #f41010;"></i></button>
         <button  class="update" onclick="updatebook(${id})"><i class="fa-solid fa-pen"></i></button>
     </div>
 </div>`;}
@@ -43,6 +43,10 @@ let deletebook=async(id)=>{
    let res=await passdeletebook(id);
     createbookUi()
 }
+function createoverlay(){
+    console.log("hehe")
+    document.querySelector(".addbook-container").style.visibility="visible"
+}
 let createbook = () => {
   let title = document.querySelector(".title").value;
   let author = document.querySelector(".author").value;
@@ -69,7 +73,8 @@ let createbook = () => {
    publishedYear.value="";
    coverImageUrl.value="";
    description.value="";
-}).then(()=>createbookUi())
+}).then(()=>createbookUi());
+document.querySelector(".addbook-container").style.visibility="hidden"
     
 
 };

@@ -18,11 +18,7 @@
         background-color: whitesmoke;
         font-family: sans-serif;
       }
-      /* section{
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-      } */
+   
       .bookcontainer {
         margin: 1rem;
       }
@@ -33,28 +29,7 @@
       .booksContainer {
         display: flex;
       }
-      .addbook {
-        height: 15rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        border-radius: 10px;
-        background-color: white;
-        padding: 2rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      }
-      /* .addbook button,
-            input {
-              background-color: #f8f4ff;
-              height: 37px;
-              border-radius: 10px;
-              color: #5f5378;
-              font-weight: bold;
-              font-size: 14px;
-              border: 1px solid #cccccc;
-              transition: border-color 0.3s ease;
-            } */
-      /*  */
+    
       .books-container {
         display: flex;
         flex-wrap: wrap;
@@ -69,8 +44,12 @@
       }
 
       header {
-        background-color: #5f5378;
-        height: 4rem;
+        background-color: white;
+
+        padding: 1rem;
+      }
+      h1{
+        margin: 0;
       }
       .searchContainer {
         margin-top: 2rem;
@@ -85,13 +64,14 @@
         background-color: #fcfbfd;
         height: 1.5rem;
         border-radius: 5px;
-        color: #5a57575c;
+        color: #100b0b;;
 
         font-size: 14px;
         border: 2px solid #dbd9d9;
         transition: border-color 0.3s ease;
       }
-      .searchContainer button {
+      .searchContainer button,
+      .addbook-container button {
         font-size: 1rem;
         height: 2rem;
         border: none;
@@ -108,56 +88,89 @@
         height: 2rem;
         border: 2px solid #5a57575c;
         border-radius: 5px;
-        color: #5a57575c;
+        color: #100b0b;
       }
-      .delete,.update{
+      .delete,
+      .update {
         visibility: hidden;
       }
-      .deleteIcon ,i{
+      .deleteIcon,
+      i {
         text-align: center;
         font-size: 1rem;
       }
-      .bookcontainer:hover .delete ,.bookcontainer:hover .update{
+      .bookcontainer:hover .delete,
+      .bookcontainer:hover .update {
         visibility: visible;
         height: 2.5rem;
         width: 2.5rem;
         border-radius: 50%;
         border: 0;
       }
+      .createbook {
+        display: relative;
+      }
+      .addbook-container {
+        visibility:hidden;
+        position: absolute;
+        background-color: white;
+        padding: 1rem;
+        right: 1rem;
+        width: 26rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        border-radius: 10px;
+        gap: 1.5rem;
+        color: black;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+
+      button:hover {
+        transition: all 0.2s ease-in-out;
+        background-color: hsl(207, 71%, 54%);
+      }
+      .addbook-container input {
+        color: black;
+        width: 45%;
+      }
+      #title {
+        width: 100%;
+      }
+      h2 {
+        margin: 0;
+      }
+      #description {
+        width: 100%;
+        height: 2rem;
+      }
+      .addbook-container::before{
+        content: "";
+        position: absolute;
+        top: -12px;
+        right: 28px;
+        background: #ffffff;
+        height: 1.5rem;
+        width: 1.5rem;
+        box-shadow: rgba(99, 99, 99, 0.2) -3px 2px 4px 0px;
+        transform: rotate(135deg);
+      
+      }
     </style>
   </head>
   <body>
-    <!-- <section>
-       <div >
-        <input type="text" class="searchText" placeholder="searchText" id="">
-        <button class="Search-btn" onclick="searchBookByName()">🔍</button>
-       </div>
-        <div class="addbook">
-            <input type="text" class="title" placeholder="title" name="" id="">
-            <input type="text" class="coverImageUrl" placeholder="coverImageUrl" name="" id="">
-             <input type="text" class="description" placeholder="description" name="" id="">
-            <input type="text" class="author"  placeholder="author"name="" id="">
-            <input type="text" class="genre" placeholder="gener" name="" id="">
-            <input type="text" class="publishedYear" placeholder="publishedYear"name="" id="">
-            <button onclick="createbook()"> submit</button>
-        </div>
-      <div class="booksContainer"></div>
-    </section> -->
     <section>
       <header>
         <div class="link">
-          <a href="" class="nav-links">About</a
-          ><a href="" class="nav-links">Services</a
-          ><a href="" class="nav-links">Projects</a>
-          <button class="nav-btn">Contact</button>
+          <h1>Library management system</h1>
         </div>
       </header>
     </section>
     <section>
       <div class="searchContainer">
         <div class="searchbox">
-          <input type="text" placeholder="search.." />
-          <button>search</button>
+          <input type="text" class="searchText" placeholder="search.." />
+          <button onclick="searchBookByName()">search</button>
           <select>
             <option value="" selected>Search By</option>
             <option value="title">title</option>
@@ -167,8 +180,42 @@
           </select>
         </div>
         <div class="createbook">
-          <button class="createbook">+ New</button>
+          <button class="createbook" onclick="createoverlay()">+ New</button>
         </div>
+      </div>
+      <div class="addbook-container">
+        <h2>Create new book</h2>
+        <input
+          type="text"
+          class="title"
+          placeholder="title"
+          name=""
+          id="title"
+        />
+        <input
+          type="text"
+          class="coverImageUrl"
+          placeholder="coverImageUrl"
+          name=""
+          id=""
+        />
+        <input type="text" class="author" placeholder="author" name="" id="" />
+        <input type="text" class="genre" placeholder="gener" name="" id="" />
+        <input
+          type="text"
+          class="publishedYear"
+          placeholder="publishedYear"
+          name=""
+          id=""
+        />
+        <input
+          type="text"
+          class="description"
+          placeholder="description"
+          name=""
+          id="description"
+        />
+        <button onclick="createbook()">submit</button>
       </div>
       <div class="books-container"></div>
     </section>
