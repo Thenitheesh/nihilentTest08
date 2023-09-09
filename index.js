@@ -8,8 +8,8 @@
         <h3>${title}</h3>
         <p>${author}</p>
         <p>${publishedYear}</p>
-        <button onclick="deletebook(${id})">delete</button>
-        <button onclick="updatebook(${id})">update</button>
+        <button class="delete" onclick="deleteUser(${id})"><i class="fa-solid fa-trash deleteIcon" style="color: #f41010;"></i></button>
+        <button  class="update" onclick="updatebook(${id})"><i class="fa-solid fa-pen"></i></button>
     </div>
 </div>`;}
 // });

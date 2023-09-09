@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       body {
         margin: 0;
@@ -12,10 +19,10 @@
         font-family: sans-serif;
       }
       /* section{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-} */
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+      } */
       .bookcontainer {
         margin: 1rem;
       }
@@ -37,16 +44,16 @@
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       }
       /* .addbook button,
-      input {
-        background-color: #f8f4ff;
-        height: 37px;
-        border-radius: 10px;
-        color: #5f5378;
-        font-weight: bold;
-        font-size: 14px;
-        border: 1px solid #cccccc;
-        transition: border-color 0.3s ease;
-      } */
+            input {
+              background-color: #f8f4ff;
+              height: 37px;
+              border-radius: 10px;
+              color: #5f5378;
+              font-weight: bold;
+              font-size: 14px;
+              border: 1px solid #cccccc;
+              transition: border-color 0.3s ease;
+            } */
       /*  */
       .books-container {
         display: flex;
@@ -78,11 +85,44 @@
         background-color: #fcfbfd;
         height: 1.5rem;
         border-radius: 5px;
-        color: rgb(19, 19, 19);
-        
+        color: #5a57575c;
+
         font-size: 14px;
         border: 2px solid #dbd9d9;
         transition: border-color 0.3s ease;
+      }
+      .searchContainer button {
+        font-size: 1rem;
+        height: 2rem;
+        border: none;
+        color: white;
+        background-color: rgb(115, 176, 230);
+        border-radius: 5px;
+      }
+      .searchbox {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      select {
+        height: 2rem;
+        border: 2px solid #5a57575c;
+        border-radius: 5px;
+        color: #5a57575c;
+      }
+      .delete,.update{
+        visibility: hidden;
+      }
+      .deleteIcon ,i{
+        text-align: center;
+        font-size: 1rem;
+      }
+      .bookcontainer:hover .delete ,.bookcontainer:hover .update{
+        visibility: visible;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        border: 0;
       }
     </style>
   </head>
@@ -116,10 +156,10 @@
     <section>
       <div class="searchContainer">
         <div class="searchbox">
-          <input type="text" placeholder="search.."/>
+          <input type="text" placeholder="search.." />
           <button>search</button>
-          <select width="300" style="width: 350px">
-            <option value="" selected>Select a option</option>
+          <select>
+            <option value="" selected>Search By</option>
             <option value="title">title</option>
             <option value="author">author</option>
             <option value="publishedYear">publishedYear</option>
@@ -127,7 +167,7 @@
           </select>
         </div>
         <div class="createbook">
-          <button class="createbook">New</button>
+          <button class="createbook">+ New</button>
         </div>
       </div>
       <div class="books-container"></div>
