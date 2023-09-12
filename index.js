@@ -80,8 +80,9 @@ document.querySelector(".addbook-container").style.visibility="hidden"
 };
 let searchBook = async() => {
     let searchText = document.querySelector(".searchText").value;
+    let title = document.querySelector("select").value;
     let res=await fetch(
-      `https://64f6f4189d7754084952d867.mockapi.io/users?title=${searchText}`,
+      `https://64f6f4189d7754084952d867.mockapi.io/users?${title}=${searchText}`,
       {
         method: "get",
       }
